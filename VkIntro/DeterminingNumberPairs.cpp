@@ -30,7 +30,7 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	// Попытка создания массива для хранения меток элементов
 	maximum = max - min;
 	try {
-		if (maximum == 4294967295u)
+		if (maximum == UINT_MAX)
 		{
 			throw("Требуется слишком большое количество элементов во вспомогательном массиве.");
 		}
@@ -38,7 +38,14 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	}
 	catch (...) {
 		// В случае ошибки при выделени памяти подсчёт происходит более медленным и менее требовательным к памяти способом
-		return GetAPQuickSort(arr1, len1, arr2, len2);
+		if ((len1 * len2) < ((len1 + len2) * log2(len1 + len2)))
+		{
+			return GetAPBruteForce(arr1, len1, arr2, len2);
+		}
+		else
+		{
+			return GetAPQuickSort(arr1, len1, arr2, len2);
+		}
 	}
 	for (int i = 0; i <= maximum; ++i) {
 		count[i] = 0;
@@ -58,10 +65,11 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 
 int DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2)
 {
+	int *arr;
 	unsigned result = 0;
 
 	// Объединение входных массивов в один новый
-	int *arr = new int[len1 + len2];
+	arr = new int[len1 + len2];
 	unsigned n;
 	for (n = 0; n < len1; ++n) {
 		arr[n] = arr1[n];
@@ -87,6 +95,41 @@ int DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, 
 		}
 	}
 	delete[] arr;
+
+	return result;
+}
+
+int DeterminingNumberPairs::GetAPBruteForce(int *arr1, unsigned len1, int *arr2, unsigned len2)
+{
+	int *arrShort, *arrLong;
+	unsigned lenShort, lenLong;
+	unsigned result = 0;
+
+	if (len1 < len2) {
+		lenShort = len1;
+		lenLong = len2;
+		arrShort = arr1;
+		arrLong = arr2;
+	}
+	else
+	{
+		lenShort = len2;
+		lenLong = len1;
+		arrShort = arr2;
+		arrLong = arr1;
+	}
+
+	for (int i = 0; i < lenShort; i++)
+	{
+		for (int j = 0; j < lenLong; j++ )
+		{
+			if (arrShort[i] == arrLong[j])
+			{
+				++result;
+				break;
+			}
+		}
+	}
 
 	return result;
 }
