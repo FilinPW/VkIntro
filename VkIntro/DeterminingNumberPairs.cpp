@@ -38,35 +38,7 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	}
 	catch (...) {
 		// В случае ошибки при выделени памяти подсчёт происходит более медленным и менее требовательным к памяти способом
-		// Объединение входных массивов в один новый
-		int *arr = new int[len1 + len2];
-		unsigned n;
-		for (n = 0; n < len1; ++n) {
-			arr[n] = arr1[n];
-		}
-		for (unsigned i = 0; i < len2; ++i) {
-			arr[n++] = arr2[i];
-		}
-
-		// Быстрая сортировка нового массива
-		qsort(arr, n, sizeof *arr, [](const void* a, const void* b)
-		{
-			int arg1 = *static_cast<const int*>(a);
-			int arg2 = *static_cast<const int*>(b);
-
-			return (arg1 > arg2) - (arg1 < arg2);
-		});
-
-		// Подсчёт количества общих элементов
-		for (unsigned i = 0; i < n - 1; ++i) {
-			if (arr[i] == arr[i + 1]) {
-				++i;
-				++result;
-			}
-		}
-		delete[] arr;
-
-		return result;
+		return GetAPQuickSort(arr1, len1, arr2, len2);
 	}
 	for (int i = 0; i <= maximum; ++i) {
 		count[i] = 0;
@@ -82,7 +54,41 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	delete[] count;
 
 	return result;
-	return 1;
+}
+
+int DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2)
+{
+	unsigned result = 0;
+
+	// Объединение входных массивов в один новый
+	int *arr = new int[len1 + len2];
+	unsigned n;
+	for (n = 0; n < len1; ++n) {
+		arr[n] = arr1[n];
+	}
+	for (unsigned i = 0; i < len2; ++i) {
+		arr[n++] = arr2[i];
+	}
+
+	// Быстрая сортировка нового массива
+	qsort(arr, n, sizeof *arr, [](const void* a, const void* b)
+	{
+		int arg1 = *static_cast<const int*>(a);
+		int arg2 = *static_cast<const int*>(b);
+
+		return (arg1 > arg2) - (arg1 < arg2);
+	});
+
+	// Подсчёт количества общих элементов
+	for (unsigned i = 0; i < n - 1; ++i) {
+		if (arr[i] == arr[i + 1]) {
+			++i;
+			++result;
+		}
+	}
+	delete[] arr;
+
+	return result;
 }
 
 DeterminingNumberPairs::DeterminingNumberPairs()
