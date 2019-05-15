@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "DeterminingNumberPairs.h"
 
-int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, unsigned len2)
+unsigned DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, unsigned len2)
 {
 	unsigned result = 0;
 	int min = INT_MAX;
@@ -43,9 +43,7 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	}
 	catch (...)
 	{
-		unsigned long long lenA = len1;
-		unsigned long long lenB = len2;
-		if ((lenA * lenB) < (lenA * log2(len1) + lenB * log2(len2)))
+		if (1 < (log2(len1) / len2 + log2(len2) / len1))
 		{
 			return GetAPBruteForce(arr1, len1, arr2, len2);
 		}
@@ -74,12 +72,20 @@ int DeterminingNumberPairs::GetAmountPairs(int *arr1, unsigned len1, int *arr2, 
 	return result;
 }
 
-int DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2)
+unsigned DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2)
 {
-	int *arrA = new int[len1];
-	int *arrB = new int[len2];
+	int *arrA, *arrB;
 	unsigned result = 0;
 
+	try
+	{
+		arrA = new int[len1];
+		arrB = new int[len2];
+	}
+	catch (...)
+	{
+		return GetAPBruteForce(arr1, len1, arr2, len2);
+	}
 	for (unsigned i = 0; i < len1; ++i)
 	{
 		arrA[i] = arr1[i];
@@ -124,7 +130,7 @@ int DeterminingNumberPairs::GetAPQuickSort(int *arr1, unsigned len1, int *arr2, 
 	return result;
 }
 
-int DeterminingNumberPairs::GetAPBruteForce(int *arr1, unsigned len1, int *arr2, unsigned len2)
+unsigned DeterminingNumberPairs::GetAPBruteForce(int *arr1, unsigned len1, int *arr2, unsigned len2)
 {
 	int *arrShort, *arrLong;
 	unsigned lenShort, lenLong;

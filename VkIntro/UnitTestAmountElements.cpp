@@ -20,7 +20,7 @@ namespace VkIntro
 			int b[] = { 1 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(OneA_OneB_1)
@@ -29,7 +29,7 @@ namespace VkIntro
 			int b[] = { 0 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(TenA_TenB)
@@ -38,7 +38,7 @@ namespace VkIntro
 			int b[] = { 8, 0, -6, 23, 32, 88, 7, -8, 9, -10 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(3, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(3u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(OneA_TenB)
@@ -47,7 +47,7 @@ namespace VkIntro
 			int b[] = { 8, 0, -6, 23, 32, 88, 7, -8, 9, -10 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(TenA_OneB)
@@ -56,7 +56,7 @@ namespace VkIntro
 			int b[] = { 3 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(SmallA_BigB)
@@ -69,7 +69,7 @@ namespace VkIntro
 			}
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(3, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(3u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(BigA_SmallB)
@@ -82,7 +82,7 @@ namespace VkIntro
 			int b[] = { -1, 0, 300, 299 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(3, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(3u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 	};

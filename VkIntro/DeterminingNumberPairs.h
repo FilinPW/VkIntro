@@ -19,7 +19,7 @@ public:
 	/// <param name="len1">Кол-во элементов в первом массиве.</param>
 	/// <param name="arr2">Второй массив.</param>
 	/// <param name="len2">Кол-во элементов во втором массиве.</param>
-	int GetAmountPairs(int *arr1, unsigned len1, int *arr2, unsigned len2);
+	unsigned GetAmountPairs(int *arr1, unsigned len1, int *arr2, unsigned len2);
 
 private:
 
@@ -32,7 +32,7 @@ private:
 	/// <param name="len1">Кол-во элементов в первом массиве.</param>
 	/// <param name="arr2">Второй массив.</param>
 	/// <param name="len2">Кол-во элементов во втором массиве.</param>
-	int GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2);
+	unsigned GetAPQuickSort(int *arr1, unsigned len1, int *arr2, unsigned len2);
 
 	/// <summary> 
 	/// Определение количества общих элементов в двух массивах типа int, при условии уникальности элементов в каждом массиве.
@@ -43,7 +43,7 @@ private:
 	/// <param name="len1">Кол-во элементов в первом массиве.</param>
 	/// <param name="arr2">Второй массив.</param>
 	/// <param name="len2">Кол-во элементов во втором массиве.</param>
-	int GetAPBruteForce(int *arr1, unsigned len1, int *arr2, unsigned len2);
+	unsigned GetAPBruteForce(int *arr1, unsigned len1, int *arr2, unsigned len2);
 	
 };
 

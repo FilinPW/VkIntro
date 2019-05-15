@@ -20,7 +20,7 @@ namespace VkIntro
 			int b[] = { 0 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_B)
@@ -29,7 +29,7 @@ namespace VkIntro
 			int b[] = { INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_A)
@@ -38,7 +38,7 @@ namespace VkIntro
 			int b[] = { 0 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_B)
@@ -47,7 +47,7 @@ namespace VkIntro
 			int b[] = { INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_A_MAX_B)
@@ -56,7 +56,7 @@ namespace VkIntro
 			int b[] = { INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_A_MIN_B)
@@ -65,7 +65,7 @@ namespace VkIntro
 			int b[] = { INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_A_MIN_B)
@@ -74,7 +74,7 @@ namespace VkIntro
 			int b[] = { INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_A_MAX_B)
@@ -83,7 +83,7 @@ namespace VkIntro
 			int b[] = { INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_A)
@@ -92,7 +92,7 @@ namespace VkIntro
 			int b[] = { 1 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_A)
@@ -101,7 +101,7 @@ namespace VkIntro
 			int b[] = { -1 };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_B)
@@ -110,7 +110,7 @@ namespace VkIntro
 			int b[] = { INT_MIN, INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_B)
@@ -119,7 +119,7 @@ namespace VkIntro
 			int b[] = { INT_MAX, INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(0, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(0u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_A_MIN_MAX_B)
@@ -128,7 +128,7 @@ namespace VkIntro
 			int b[] = { INT_MIN, INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_A_MIN_MAX_B)
@@ -137,7 +137,7 @@ namespace VkIntro
 			int b[] = { INT_MIN, INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_A_MAX_MIN_B)
@@ -146,7 +146,7 @@ namespace VkIntro
 			int b[] = { INT_MAX, INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_A_MAX_MIN_B)
@@ -155,7 +155,7 @@ namespace VkIntro
 			int b[] = { INT_MAX, INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_A_MIN_B)
@@ -164,7 +164,7 @@ namespace VkIntro
 			int b[] = { INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_A_MIN_B)
@@ -173,7 +173,7 @@ namespace VkIntro
 			int b[] = { INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_A_MAX_B)
@@ -182,7 +182,7 @@ namespace VkIntro
 			int b[] = { INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_A_MAX_B)
@@ -191,7 +191,7 @@ namespace VkIntro
 			int b[] = { INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(1, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(1u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_A_MAX_MIN_B)
@@ -200,7 +200,7 @@ namespace VkIntro
 			int b[] = { INT_MAX, INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(2, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(2u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_A_MIN_MAX_B)
@@ -209,7 +209,7 @@ namespace VkIntro
 			int b[] = { INT_MIN, INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(2, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(2u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MIN_MAX_A_MAX_MIN_B)
@@ -218,7 +218,7 @@ namespace VkIntro
 			int b[] = { INT_MAX, INT_MIN };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(2, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(2u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 		TEST_METHOD(MAX_MIN_A_MIN_MAX_B)
@@ -227,7 +227,7 @@ namespace VkIntro
 			int b[] = { INT_MIN, INT_MAX };
 			unsigned lenA = sizeof(a) / sizeof(int);
 			unsigned lenB = sizeof(b) / sizeof(int);
-			Assert::AreEqual(2, dnp.GetAmountPairs(a, lenA, b, lenB));
+			Assert::AreEqual(2u, dnp.GetAmountPairs(a, lenA, b, lenB));
 		}
 
 	};
