@@ -67,8 +67,8 @@ namespace VkIntro
 
 		TEST_METHOD(BigA_SmallB)
 		{
-			int a[] = { 3, 8, -12, 4, 13, 0, 7, 11, -9, -5, 14, INT_MAX, 10, -15, 1, -16 };
-			int aCopy[] = { 3, 8, -12, 4, 13, 0, 7, 11, -9, -5, 14, INT_MAX, 10, -15, 1, -16 };
+			int a[] = { 3, 8, -12, 4, 13, 0, 7, 11, -9, -5, 14, INT_MAX, 10, -15, 1, INT_MIN };
+			int aCopy[] = { 3, 8, -12, 4, 13, 0, 7, 11, -9, -5, 14, INT_MAX, 10, -15, 1, INT_MIN };
 			int b[] = { 3, -8, 4, 0 };
 			int bCopy[] = { 3, -8, 4, 0 };
 			unsigned lenA = sizeof(a) / sizeof(int);
